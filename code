@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+vector <long long> x;
+vector <long long> y;
+
+int i, j, n, m;
+long long sum;
+
+int main()
+{
+    ifstream cin("perechi.in");
+    ofstream cout("perechi.out");
+    
+    cin >> n >> m;
+    
+    x.resize(n);
+    y.resize(m);
+    
+    for(auto& i : x)
+    {
+        cin >> i;
+    }
+    
+    for(auto& i : y)
+    {
+        cin >> i;
+    }
+    
+    sort(x.begin(), x.end(), greater<int>());
+    sort(y.begin(), y.end(), greater<int>());
+    
+    for(i = 0, j = 0; i < n and j < m; i ++, j ++)
+    {
+        sum += (x[i] + y[j]) * (x[i] + y[j]);
+    }
+    
+    cout << sum;
+
+    return 0;
+}
